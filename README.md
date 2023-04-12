@@ -1,14 +1,14 @@
-# TBIF1210-05-12
+TBIF1210-05-12
+(Tugas Besar Dasar Pemrograman Kelompok 12)
 
-Tugas Besar Dasar Pemrograman Kelompok 12
+# Program Permainan Manajerial Candi
 
-Program Permainan Manajerial Candi
+Oleh Kelompok 12:
 
-Kelompok 12
+1. 16522194 Haykal Alviantara Surya
 
-NIM Nama:
+2. 16522059 Justin Aprio Chan
 
-16522194 Haykal Alviantara Surya
-16522059 Justin Aprio Chan
-19622122 Andhika Tantyo Anugrah
-19622221 Steven Tjhia
+3. 19622122 Andhika Tantyo Anugrah
+
+4. 19622221 Steven Tjhia

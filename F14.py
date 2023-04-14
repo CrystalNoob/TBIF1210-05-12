@@ -2,5 +2,5 @@ import os
 import sys
 
 # Procedure
-def save():
+def save() -> None:
     pass

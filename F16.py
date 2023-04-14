@@ -1,5 +1,5 @@
 import sys
-import F14
+from F14 import save
 
 # Variable
 question = "Apakah Anda mau melakukan penyimpanan file yang sudah diubah? (y/n) "
@@ -15,6 +15,6 @@ def exit() -> None:
         print(question, end='')
         ans = input().lower()
     if ans == 'y':
-        F14.save()
+        save()
     else:
         sys.exit()

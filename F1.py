@@ -8,7 +8,7 @@ def login() -> None:
     loggedUser = input("Username: ")
     loggedPass = input("Password: ")
 
-    if logged:
+    if not logged:
         print("Login gagal!" + '\n' + "Anda telah login dengan username Bandung, silahkan lakukan “logout” sebelum melakukan login kembali.")
     else:
         i = 1
@@ -17,6 +17,7 @@ def login() -> None:
                 # if pass matched:
                     # match = True
                     # logged = True
+                    # role = role dari file csv
                     # print("Selamat datang," loggedUser + "!" + '\n' + "Masukkan command “help” untuk daftar command yang dapat kamu panggil.")
                 # else:
                     # print("Password salah!")

@@ -8,32 +8,19 @@ def login() -> None:
     loggedUser = input("Username: ")
     loggedPass = input("Password: ")
 
-    if not logged:
-        print("Login gagal!" + '\n' + "Anda telah login dengan username Bandung, silahkan lakukan “logout” sebelum melakukan login kembali.")
+    if logged:
+        print("Login gagal!\nAnda telah login dengan username Bandung, silahkan lakukan “logout” sebelum melakukan login kembali.")
     else:
         i = 1
         while not match and i <= NMax:
-            # if uname matched:
-                # if pass matched:
-                    # match = True
-                    # logged = True
-                    # role = role dari file csv
-                    # print("Selamat datang," loggedUser + "!" + '\n' + "Masukkan command “help” untuk daftar command yang dapat kamu panggil.")
-                # else:
-                    # print("Password salah!")
+            if loggedUser == 'test':
+                if loggedPass == 'test':
+                    match = True
+                    logged = True
+                    role = "Bandung"
+                    print(f"Selamat datang, {loggedUser}!\nMasukkan command “help” untuk daftar command yang dapat kamu panggil.")
+                else:
+                    print("Password salah!")
             i += 1
         if not match:
             print("Username tidak terdaftar!")
-
-# listUser = open("user.csv", 'r')
-# userName = listUser.read(1)
-
-
-
-# while True:
-#     loginName += userName
-#     userName = listUser.read(1)
-#     if userName == mark:
-#         break
-# print(loginName)
-# listUser.close()

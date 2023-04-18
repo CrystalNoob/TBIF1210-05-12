@@ -1,20 +1,20 @@
 import sys
 from F14 import save
 
-# Variable
+# Constant
 question = "Apakah Anda mau melakukan penyimpanan file yang sudah diubah? (y/n) "
 
 # Procedure
-def isAnsValid(resp) -> bool:
+def isAnsValid(resp) -> bool:   # Cek apakah jawaban valid
     return resp in ('y', 'n')
 
 def exit() -> None:
     print(question, end='')
-    ans = input().lower()
-    while not isAnsValid(ans):
-        print(question, end='')
+    ans = input().lower()       # Menghilangkan faktor huruf kapital
+    while not isAnsValid(ans):  # Kasih ans ke fungsi cek
+        print(question, end='') # Meminta input sampai jawabannya benar
         ans = input().lower()
     if ans == 'y':
-        save()
-    else:
-        sys.exit()
+        save()                  # Save
+    else:                       # Jika sudah sampai tahap ini, berarti jawaban pasti 'n'
+        sys.exit()              # Exit program

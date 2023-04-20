@@ -1,21 +1,12 @@
-from csv_arr_Converter import csvToArr
-from length_CSV import lenCsvRow
-
-# Konstanta
-NMax = lenCsvRow("user.csv")
-arr = csvToArr("user.csv")
-
 # Prosedur Login
-def login() -> None:
+def login(logged, arr, NMax) -> None:
     nameFound = False
-    passMatch = False
-    logged = False
-    loggedUser = input("Username: ")
-    loggedPass = input("Password: ")
-
-    if logged:
-        print("Login gagal!\nAnda telah login dengan username Bandung, silahkan lakukan “logout” sebelum melakukan login kembali.")
+    passMatch = False           # Init state
+    if logged:          # Why log in when you're already logged?
+        print(f"Login gagal!\nAnda telah login dengan username {loggedUser}, silahkan lakukan “logout” sebelum melakukan login kembali.")
     else:
+        loggedUser = input("Username: ")    # Ask for input to authorize
+        loggedPass = input("Password: ")
         i = 0
         while not nameFound and i < NMax:
             if loggedUser == arr[i][0]:

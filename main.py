@@ -6,6 +6,7 @@ import F16
 from csv_arr_Converter import csvToArr
 from pemrosesanArray import filterRole
 from length_CSV import *
+from F09 import laporanjin
 
 users = csvToArr("user.csv")
 candi = csvToArr("candi.csv")
@@ -17,6 +18,9 @@ role = ''
 
 jin_pengumpul = filterRole("jin_pengumpul", users[2], users[0])
 jin_pembangun = filterRole("jin_pembangun", users[2], users[0])
+
+# # Testing Laporan Jin: (diuncomment aja kl mau dites)
+# laporanjin(jin_pengumpul, jin_pembangun, bahan_bangunan, candi)
 
 # Command checker
 def checker(cmd):

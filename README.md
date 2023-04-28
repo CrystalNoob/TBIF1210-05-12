@@ -52,7 +52,7 @@
     </tr>
     <tr>
       <td>F08</td>
-      <td>Membangun Candi Saja/Mengumpulkan Bahan Saja en masse</td>
+      <td>Membangun Candi Saja/Mengumpulkan Bahan Saja <em>en masse<em></td>
     </tr>
     <tr>
       <td>F09</td>

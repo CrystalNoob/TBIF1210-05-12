@@ -22,6 +22,7 @@ def load() -> None:
     # elif (nama_folder == "New Folder"):
     #     path
     elif (nama_folder == "New Folder"):
+        print("Loading...")
         path = "./New Folder"
         for _file in os.listdir(path):
             if (_file == "user.csv"):
@@ -30,6 +31,8 @@ def load() -> None:
                 arr_candiCSV = csvToArr(path + '/' + _file)
             if (_file == "bahan_bangunan.csv"):
                 arr_bahan_bangunanCSV = csvToArr(path + '/' + _file)
+        print('Selamat datang di program "Manajerial Candi"')
+        print("Silahkan masukkan username Anda")
     else:
         path = "./save/"
         isFound = False
@@ -37,6 +40,7 @@ def load() -> None:
             for _dir in dirs:
                 if (nama_folder == _dir):
                     isFound = True
+                    print("Loading...")
                     for _file in os.listdir(path + _dir):
                         if (_file == "user.csv"):
                             arr_userCSV = csvToArr(path + _dir + '/' + _file)
@@ -44,6 +48,8 @@ def load() -> None:
                             arr_candiCSV = csvToArr(path + _dir + '/' + _file)
                         if (_file == "bahan_bangunan.csv"):
                             arr_bahan_bangunanCSV = csvToArr(path + _dir + '/' + _file)
+                    print('Selamat datang di program "Manajerial Candi"')
+                    print("Silahkan masukkan username Anda")
         if (not isFound):
             print('Folder "' + nama_folder + '" tidak ditemukan.')
             sys.exit()

@@ -1,84 +1,68 @@
-def hitung_candi(data_candi): #untuk menghitung jumlah candi dan membuat agar jika jumlah cani >= 100, tetap berhasil, tetapi tidak
-    #disimpan di dalam data
-    banyak_candi = 0
-    for i in range or i in range(1,101): 1
-    if data_candi[i][1] != "": 
-            banyak_candi += 1 
-    return banyak_candi 
-
-
-def bangun(username, id, batch, data_bahan, data_candi):
-    #id berupa array yang berisi id yang telah dibuat untuk tiap jin
-    #batch adalah variabel dari file batchbangun yang berfungsi dalam "for batch in range yang" untuk menunjukkan banyaknya jin
-    #id dan batch igunakan dalam batch bangun
-
-    import random as rd
-    bahan_bangun_terpakai = [0,0,0]
-    for i in range (1,4): #Data bahan bangunan hnya sampai 3
-        if data_bahan[i][0] =="pasir":
-            pasir = data_bahan[i][2] 
-        elif data_bahan [i][0] == "batu" :
-            batu = data_bahan [i][2]
-        elif data_bahan[i][0] == "air" :
-            air = data_bahan[i][2] 
-
-    butuhpasir = rd.randint (1,5) #jumlah pasir yang diperlukan
-    butuhbatu = rd.randint (1,5) #jumlah batu yang diperlukan
-    butuhair = rd.randint (1,5) #jumlah air yang dibutuhkan
-    bisa = False #menunjukkan apakah program bisa jalan
-    banyak_candi = hitung_candi(data_candi) #Menghitung banyak candi di awal
-
-    if (pasir >= butuhpasir) and (batu >= butuhbatu) and (air >= butuhair) :
-        for j in range (1,4) :
-            if data_bahan [j][0] == "pasir" :
-                data_bahan [j][2] -= butuhpasir #untuk mengecek jumlah pasir yang tersedia
-            elif data_bahan [j][0] == "batu" :
-                data_bahan [j][2] -= butuhbatu 
-            elif data_bahan [j][0] == "air" : 
-                data_bahan [j][2] -= butuhair
-        
-        if (banyak_candi<100): 
-            i = 1
-            datakosong = False  #menentukan apakah data sudah terisi
-            while datakosong == False :
-                if data_candi [i][0] == 0 : 
-                    if data_candi [i-1][0] == "id" : 
-                        data_candi[i][0] = 1
-                        data_candi [i][1] = username
-                        data_candi [i][2] = butuhpasir 
-                        data_candi [i][3] = butuhbatu
-                        data_candi [i][4] = butuhair
-                        datakosong = True
-                    else : 
-                        data_candi[i][0] = data_candi[i-1][0] + 1
-                        data_candi [i][1] = username
-                        data_candi [i][2] = butuhpasir 
-                        data_candi [i][3] = butuhbatu
-                        data_candi [i][4] = butuhair
-                        datakosong = True 
-                    id[batch] = data_candi[i][0]
-                i +=1
-        bisa = True
-    else:  #bahan tidak cukup
-        bisa = False
-
-    if bisa:
-        bahan_bangun_terpakai[0] += butuhpasir
-        bahan_bangun_terpakai[1] += butuhair
-        bahan_bangun_terpakai[2] += butuhbatu
-    
-    return [data_bahan, data_candi, bisa, id, bahan_bangun_terpakai] 
-
-
-
-def hasil_bangun(hasil): #untuk melihat hasil outptdri fungsi
-    bisa = hasil[2] 
-    banyak_candi=hitung_candi(hasil[1])
-
-    if bisa:
-        print("Candi berhasil dibangun.")
-        print("Sisa candi yang perlu dibangun: " + str(100-banyak_candi) +".")
+from B01 import random
+from pemrosesanArray import addToArr, init_arr
+seed = 8
+X0 = seed
+global new_arr_candi, new_arr_id, new_arr_jinCandi, new_arr_bahan
+def bangun(username, arr_id, arr_jinCandi, arr_candi, arr_bahan):
+    global new_arr_candi, new_arr_id, new_arr_jinCandi, new_arr_bahan
+    global X0, getID
+    # Generate bahan
+    req_pasir = random(X0, 1, 5)
+    X0 = req_pasir
+    req_batu = random(X0, 1, 5)
+    X0 = req_batu
+    req_air = random(X0, 1, 5)
+    X0 = req_air
+       
+    if (int(arr_bahan[0]) == 4 and req_pasir <= int(arr_bahan[2][1][2]) and req_batu <= int(arr_bahan[2][2][2]) and req_air <= int(arr_bahan[2][3][2])):
+        # Update bahan bangunan
+        arr_bahan[2][1][2] = str(int(arr_bahan[2][1][2])-req_pasir)
+        arr_bahan[2][2][2] = str(int(arr_bahan[2][2][2])-req_batu)
+        arr_bahan[2][3][2] = str(int(arr_bahan[2][3][2])-req_air)
+        new_arr_bahan = arr_bahan
+        # Menentukan ID Candi
+        n_eff_id = arr_id[0]
+        is_newID = True
+        if (n_eff_id == 0):
+            getID = 1
+            new_arr_id = [getID, [1]]
+        else:
+            for i in range(n_eff_id):
+                if (arr_id[1][i] == 0):
+                    getID = i + 1
+                    is_newID = False
+                    break
+            if (is_newID):
+                getID = n_eff_id+1
+                new_arr_id = [n_eff_id+1, addToArr(getID, arr_id[1], n_eff_id)]
+            else:
+                new_arr_id = arr_id
+                for i in range(arr_id[0]):
+                    if (i == getID-1):
+                        new_arr_id[1][i] = getID
+                        
+        # Update arr_jinCandi
+        if (arr_jinCandi[0] == 0):
+            new_arr_jinCandi = [1, [[username, 1]]]
+        else:
+            is_newJin = True
+            for i in range(arr_jinCandi[0]):
+                if (username == arr_jinCandi[1][i][0]):
+                  arr_jinCandi[1][i][1] = arr_jinCandi[1][i][1] + 1
+                  new_arr_jinCandi = arr_jinCandi
+                  is_newJin = False
+            if is_newJin:
+                new_arr_jinCandi = [arr_jinCandi[0]+1, addToArr([username, 1], arr_jinCandi[1], arr_jinCandi[0])]
+        # Update arr_candi
+        n_eff_candi = int(arr_candi[0]) + 1
+        new_arr_candi = [n_eff_candi, arr_candi[1], addToArr([str(getID), username, req_pasir, req_batu, req_air], arr_candi[2], int(arr_candi[0])) ]
+        print("Candi berhasil dibangun!")
+        print("Sisa candi yang perlu dibangun:", 100-int(arr_candi[0]))
     else:
-        print("Bahan bangunan tidak mencukupi.")
-        print("Candi gagal dibangun")
-    return hasil
+        new_arr_bahan = arr_bahan
+        new_arr_candi = arr_candi
+        new_arr_id = arr_id
+        new_arr_jinCandi = arr_jinCandi
+        print("Bahan bangunan tidak mencukupi!")
+        print("Candi tidak bisa dibangun!")
+    return new_arr_candi, new_arr_id, new_arr_jinCandi, new_arr_bahan

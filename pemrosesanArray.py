@@ -1,14 +1,14 @@
-def nEff(raw_arr, raw_N):
+def nEff(raw_arr, raw_N) -> int:
     n_eff = 0
     for i in range(raw_N):
         if (raw_arr != ''):
             n_eff += 1
     return n_eff
 
-def init_arr(n):
+def init_arr(n) -> list:
     return ['' for i in range(n)]
     
-def addToArr(x, arr, n_eff):
+def addToArr(x, arr, n_eff) -> list:
     new_arr = init_arr(n_eff+1)
     if (n_eff == 0):
         new_arr[n_eff] = x 
@@ -18,12 +18,15 @@ def addToArr(x, arr, n_eff):
         new_arr[n_eff] = x
     return new_arr
 
-def filterRole(role, arr, n_eff):
+def filterRole(role, arr) -> list:
+    n_eff = int(arr[0])
+    if (n_eff == 0):
+        return ["0", []]
     len_newArr = 0
     newArr = []
     for i in range(n_eff):
-        if (arr[i][2] == role):
-            newArr = addToArr(arr[i][0], newArr, len_newArr)
+        if (arr[2][i][2] == role):
+            newArr = addToArr(arr[2][i][0], newArr, len_newArr)
             len_newArr += 1
     return [str(len_newArr), newArr]
             

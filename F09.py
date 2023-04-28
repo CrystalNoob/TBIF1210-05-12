@@ -1,4 +1,4 @@
-def jinTerajin(arr_jin, arr_candi):
+def jinTerajin(arr_jin, arr_candi) -> str:
     # Spesifikasi : mengetahui siapa username jin terajin (paling banyak membuat candi).
     # Jika terdapat lebih dari 1 jin terajin, tampilkan username jin dengan urutan leksikografis terendah (contoh: Malik dan Akbar → pilih Akbar).
     # Menerima masukan array yang berisi username jin pembangun dan array yang berisi data candi yang telah dibangun.
@@ -18,7 +18,7 @@ def jinTerajin(arr_jin, arr_candi):
                 jml_candi = int(tabJin[i][1])   # Update jumlah candi terbanyak sementara
         return jin_terajin  # Menghasilkan username jin terajin (yang paling banyak membuat candi)
     
-def jinTermalas(arr_jin, arr_candi):
+def jinTermalas(arr_jin, arr_candi) -> str:
     # Spesifikasi : mengetahui siapa username jin termalas (paling sedikit membuat candi).
     # Jika terdapat lebih dari 1 jin termalas, tampilkan username jin dengan urutan leksikografis tertinggi (contoh: Hashemi dan Rafsanjani → pilih Rafsanjani).
     # Menerima masukan array yang berisi username jin pembangun dan array yang berisi data candi yang telah dibangun.
@@ -39,7 +39,7 @@ def jinTermalas(arr_jin, arr_candi):
         return jin_termalas # Menghasilkan username jin termalas (yang paling sedikit membuat candi)
     
 
-def laporanjin(arr_pengumpul, arr_pembangun, arr_bahan, arr_candi):
+def laporanjin(arr_pengumpul, arr_pembangun, arr_bahan, arr_candi) -> None:
     # Mengetahui berapa jumlah jin per tipe dan jumlah jin total.
     print("> Total Jin:", int(arr_pengumpul[0]) + int(arr_pembangun[0]))
     print("> Total Jin Pengumpul:", arr_pengumpul[0])

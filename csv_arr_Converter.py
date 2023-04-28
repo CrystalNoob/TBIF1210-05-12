@@ -27,7 +27,7 @@ def csvToArr(file):
     return arr
 
 def arrToCsv(arr, file):
-    f = open(str(file), 'w')
+    f = open(file, 'w')
     
     for i in range(arr[0]): # arr[0] menyimpan nilai panjang baris
         line = ""

@@ -1,4 +1,4 @@
-def lenCsvCol(file):   
+def lenCsvCol(file) -> int:   
     # Spesifikasi : Mengitung panjang kolom dari data csv. Input berupa string dan output berupa integer.
     # KAMUS LOKAL
     # count_semicolon, i : integer
@@ -13,13 +13,13 @@ def lenCsvCol(file):
     return count_semicolon + 1
 
 
-def lenCsvRow(file):
+def lenCsvRow(file) -> int:
     # Spesifikasi : 
     # KAMUS LOKAL
     # count_data : integer
     # line : string
     # ALGORITMA
-    f = open(str(file), 'r')
+    f = open(file, 'r')
     count_line = 0
     for line in f:
         count_line += 1

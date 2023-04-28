@@ -1,6 +1,6 @@
 # Declare global vars
 userName = ''
-logged = False
+logged = bool()
 role = ''
 
 # Login Procedure

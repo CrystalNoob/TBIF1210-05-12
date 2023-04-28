@@ -3,10 +3,6 @@ import os
 import sys
 from csv_arr_Converter import csvToArr
 
-arr_userCSV = ["0", "0", []]
-arr_candiCSV = ["0", "0", []]
-arr_bahan_bangunanCSV = ["0", "0", []]
-
 
 def load() -> None:
     global arr_userCSV, arr_candiCSV, arr_bahan_bangunanCSV
@@ -19,11 +15,21 @@ def load() -> None:
         print("Usage: python main.py <nama_folder>")
         print('Jika baru memulai : python main.py "New Folder"')
         sys.exit()
-    # elif (nama_folder == "New Folder"):
-    #     path
     elif (nama_folder == "New Folder"):
         print("Loading...")
         path = "./New Folder"
+        for _file in os.listdir(path):
+            if (_file == "user.csv"):
+                arr_userCSV = csvToArr(path + '/' + _file)
+            if (_file == "candi.csv"):
+                arr_candiCSV = csvToArr(path + '/' + _file)
+            if (_file == "bahan_bangunan.csv"):
+                arr_bahan_bangunanCSV = csvToArr(path + '/' + _file)
+        print('Selamat datang di program "Manajerial Candi"')
+        print("Silahkan masukkan username Anda")
+    elif (nama_folder == "Dummy"):
+        print("Loading...")
+        path = "./Dummy"
         for _file in os.listdir(path):
             if (_file == "user.csv"):
                 arr_userCSV = csvToArr(path + '/' + _file)

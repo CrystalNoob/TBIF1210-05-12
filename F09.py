@@ -12,20 +12,7 @@ def jinTerajin(arr_jinCandi) -> str:
                 temp_terajin = arr_jinCandi[1][i][0]
                 jmlCandiTerbanyak = arr_jinCandi[1][i][1]
     return temp_terajin
-        
-        # tabJin = [ [arr_jinCandi[1][i], "0"] for i in range(int(arr_jinCandi[0])) ]   # Inisialisas array [ [username_jin1, jmlCandiDibangunJin1] , [username_jin2, jmlCandiDibangunJin2] , ... ]
-        # for i in range(int(arr_candi[0])):  # Looping array yang berisi data candi
-        #     for j in range(int(arr_jinCandi[0])):    # Looping array yang berisi username candi pembangun
-        #         if (tabJin[j][0] == arr_candi[2][i][1]):    # Kalau username jin pembangun pada array jin pembangun = username jin pembangun pada array candi
-        #             tabJin[j][1] = str(int(tabJin[j][1]) + 1)   # Jumlah candi yang dibangun oleh username jin tersebut ditambah 1
-        # jin_terajin = tabJin[0][0]  # Inisialisasi jin terajin dimisalkan username jin pertama pada array tabJin
-        # jml_candi = int(tabJin[0][1])   # Inisalisasi jumlah candi terbanyak yang dibangun 
-        # for i in range(int(arr_jinCandi[0])): # Looping pada array tabJin dengan panjang array sama seperti panjang array yang berisi username jin
-        #     if (int(tabJin[i][1]) > jml_candi) or (int(tabJin[i][1]) == jml_candi and tabJin[i][0] < jin_terajin):  # Kalau (jumlah candi yang dibangun > jumlah candi terbanyak sementara) atau (jumlah candi yang dibangun = jumlah candi terbanyak sementara dan urutan leksikografisnya lebih kecil)
-        #         jin_terajin = tabJin[i][0]  # Update username jin terajin
-        #         jml_candi = int(tabJin[i][1])   # Update jumlah candi terbanyak sementara
-        # return jin_terajin  # Menghasilkan username jin terajin (yang paling banyak membuat candi)
-        
+         
 def jinTermalas(arr_jin, arr_candi) -> str:
     # Spesifikasi : mengetahui siapa username jin termalas (paling sedikit membuat candi).
     # Jika terdapat lebih dari 1 jin termalas, tampilkan username jin dengan urutan leksikografis tertinggi (contoh: Hashemi dan Rafsanjani → pilih Rafsanjani).

@@ -2,10 +2,9 @@ from B01 import random
 from pemrosesanArray import addToArr, init_arr
 seed = 8
 X0 = seed
-global new_arr_candi, new_arr_id, new_arr_jinCandi, new_arr_bahan
-def bangun(username, arr_id, arr_jinCandi, arr_candi, arr_bahan):
-    global new_arr_candi, new_arr_id, new_arr_jinCandi, new_arr_bahan
-    global X0, getID
+
+def bangun(username, arr_id, arr_jinCandi, arr_candi, arr_bahan) -> None:
+    global X0, new_arr_bahan, new_arr_candi, new_arr_id, new_arr_jinCandi
     # Generate bahan
     req_pasir = random(X0, 1, 5)
     X0 = req_pasir
@@ -65,4 +64,3 @@ def bangun(username, arr_id, arr_jinCandi, arr_candi, arr_bahan):
         new_arr_jinCandi = arr_jinCandi
         print("Bahan bangunan tidak mencukupi!")
         print("Candi tidak bisa dibangun!")
-    return new_arr_candi, new_arr_id, new_arr_jinCandi, new_arr_bahan

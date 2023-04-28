@@ -1,6 +1,6 @@
-import F1
-import F2
-from F06 import *
+import F01
+import F02
+import F06
 import F13
 from F13 import load
 import F14
@@ -25,7 +25,7 @@ from F09 import laporanjin
 # laporanjin(jin_pengumpul, jin_pembangun, bahan_bangunan, candi)
 
 load()
-      
+
 users = F13.arr_userCSV
 candi = F13.arr_candiCSV
 bahan_bangunan = F13.arr_bahan_bangunanCSV
@@ -57,11 +57,11 @@ while True:
     elif cmd == 'exit':
         F16.exit(users, candi, bahan_bangunan)
     elif cmd == 'bangun':
-        update_arr = bangun("usernameJin1", id_candi, jin_candi, candi, bahan_bangunan)
-        candi = update_arr[0]
-        id_candi = update_arr[1]
-        jin_candi = update_arr[2]
-        bahan_bangunan = update_arr[3]
+        F06.bangun("usernameJin1", id_candi, jin_candi, candi, bahan_bangunan)
+        candi = F06.new_arr_candi
+        id_candi = F06.new_arr_id
+        jin_candi = F06.new_arr_jinCandi
+        bahan_bangunan = F06.new_arr_bahan
         # Untuk Debugging:
         # print(candi)
         # print(id_candi)

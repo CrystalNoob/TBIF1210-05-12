@@ -16,6 +16,8 @@ def load() -> None:
     nama_folder = args.nama_folder
     if nama_folder is None:
         print("Tidak ada nama folder yang diberikan!")
+        print("Usage: python main.py <nama_folder>")
+        print('Jika baru memulai : python main.py "New Folder"')
         sys.exit()
     # elif (nama_folder == "New Folder"):
     #     path

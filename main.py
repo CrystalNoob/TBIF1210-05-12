@@ -10,9 +10,15 @@ from pemrosesanArray import filterRole
 from length_CSV import *
 from F09 import laporanjin
 load()
-# users = csvToArr("user.csv")
-# candi = csvToArr("candi.csv")
-# bahan_bangunan = csvToArr("bahan_bangunan.csv")
+# STRUKTUR ARRAY
+# users = [lenRow, lenCol [ [username, password, role], [username1, password1, role1], ... ] ]
+# candi = [lenRow, lenCol [ [id, pembuat, pasir, batu, air], [id1, pembuat1, pasir1, batu1, air1], ... ] ]
+# bahan_bangunan = [lenRow, lenCol [ [nama, deskripsi, jumlah], ["pasir", deskripsi_pasir, jumlah_pasir], ["batu", deskripsi_batu, jumlah_batu], ["air", deskripsi_air, jumlah_air] ] ]
+    # ASUMSI bahan bangunan selalu berurut pasir, batu, lalu air.
+# jin_pengumpul = [jml_jinPengumpul, [usernamePengumpul1, usernamePengumpul2, usernamePengumpul3, ... ] ]
+# jin_pembangun = [jml_jinPembangun, [usernamePembangun, usernamePembangun2, usernamePembangun3, ... ] ]
+# jin_candi = [jumlah_jin, [ [usernameJin1, JmlCandiJin1], [usernameJin2, JmlCandiJin2], ... ] ]
+
 users = F13.arr_userCSV
 candi = F13.arr_candiCSV
 bahan_bangunan = F13.arr_bahan_bangunanCSV

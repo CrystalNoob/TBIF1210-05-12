@@ -3,7 +3,7 @@ import sys
 from csv_arr_Converter import arrToCsv
 
 # Procedure
-# ASUMSI : Nama folder yang diinput sudah pasti valid
+# ASUMSI : Nama folder yang diinput sudah pasti valid (dalam artian tidak mengandung simbol yang tidak dapat digunakan)
 def save(arr_user, arr_candi, arr_bahan_bangunan) -> None:
     directory = input("Masukkan nama folder : ")
     print("Saving...")

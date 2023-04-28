@@ -50,6 +50,6 @@ def laporanjin(arr_pengumpul, arr_pembangun, arr_bahan, arr_candi) -> None:
     print("> Jin Termalas:", jinTermalas(arr_pembangun, arr_candi))
     # Melihat berapa banyak material saat ini untuk melihat mungkin tidaknya melakukan batch bangun.
     print("> Jumlah Pasir:", arr_bahan[2][1][2], "unit")
-    print("> Jumlah Air:", arr_bahan[2][2][2], "unit")
-    print("> Jumlah Batu:", arr_bahan[2][3][2], "unit")
+    print("> Jumlah Air:", arr_bahan[2][3][2], "unit")
+    print("> Jumlah Batu:", arr_bahan[2][2][2], "unit")
     

@@ -1,5 +1,7 @@
 import F01
 import F02
+import F03
+# import F04
 import F06
 import F13
 from F13 import load
@@ -49,11 +51,15 @@ while True:
     # checker(input())
     cmd = input(">>> ")
     if cmd == 'login':
-        F1.login(logged, users, NMax)
+        F01.login(logged, users[2], users[0])
     elif cmd == 'logout':
-        F2.logout()
+        F02.logout()
+    elif cmd == 'summonjin':
+        F03.summon_jin()
+    # elif cmd == 'hapusjin':
+    #     F04.hapus_jin()
     elif cmd == 'help':
-        F15.help(logged, role)
+        F15.help()
     elif cmd == 'exit':
         F16.exit(users, candi, bahan_bangunan)
     elif cmd == 'bangun':

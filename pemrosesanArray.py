@@ -28,6 +28,6 @@ def filterRole(role, arr) -> list:
         if (arr[2][i][2] == role):
             newArr = addToArr(arr[2][i][0], newArr, len_newArr)
             len_newArr += 1
-    return [str(len_newArr), newArr]
+    return [len_newArr, newArr]
             
     

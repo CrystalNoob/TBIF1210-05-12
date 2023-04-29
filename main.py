@@ -3,8 +3,8 @@ import F02
 import F03
 # import F04
 import F06
+import F10
 import F13
-from F13 import load
 import F14
 import F15
 import F16
@@ -23,10 +23,8 @@ from F09 import laporanjin
 # id_candi = [n_eff, [1, 2, 3, 4, 5, 0, ... ] ]
     # angka 0 menunjukkan bahwa candi dihancurkan
 
-# # Testing Laporan Jin: (diuncomment aja kl mau dites)
-# laporanjin(jin_pengumpul, jin_pembangun, bahan_bangunan, candi)
 
-load()
+F13.load()
 
 users = F13.arr_userCSV
 candi = F13.arr_candiCSV
@@ -55,9 +53,19 @@ while True:
     elif cmd == 'logout':
         F02.logout()
     elif cmd == 'summonjin':
-        F03.summon_jin()
+        F03.summonjin(jin_pengumpul, jin_pembangun, users)
+        jin_pengumpul = F03.new_arr_pengumpul
+        jin_pembangun = F03.new_arr_pembangun
+        users = F03.new_arr_user
+        print(jin_pembangun)
+        print(jin_pengumpul)
+        print(users)
     # elif cmd == 'hapusjin':
     #     F04.hapus_jin()
+    elif cmd == 'laporancandi':
+        F10.laporancandi(candi)
+    elif cmd == 'save':
+        F14.save(users, candi, bahan_bangunan)
     elif cmd == 'help':
         F15.help()
     elif cmd == 'exit':

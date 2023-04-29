@@ -6,6 +6,7 @@ import F05
 import F06
 import F08
 import F10
+import F11
 import F12
 import F13
 import F14
@@ -161,6 +162,12 @@ while True:
         print(bahan_bangunan)
     elif cmd == 'laporancandi':
         F10.laporancandi(candi)
+    elif cmd == 'hancurkancandi':
+        F11.hancurkancandi(candi)
+        candi = F11.new_arr_candi
+        id_candi = filter_id(candi)
+        jin_candi = filter_jinCandi(candi)
+        
     elif cmd == 'ayamberkokok':
         F12.ayamberkokok(candi)
     elif cmd == 'save':

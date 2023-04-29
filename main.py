@@ -4,6 +4,7 @@ import F03
 import F04
 import F05
 import F06
+import F07
 import F08
 import F10
 import F11
@@ -135,10 +136,6 @@ while True:
         print(users)
         print(jin_pembangun)
         print(jin_pengumpul)
-        
-        
-    # elif cmd == 'hapusjin':
-    #     F04.hapus_jin()
     elif cmd == 'bangun':
         F06.bangun(False, "usernameJin1", id_candi, jin_candi, candi, bahan_bangunan)
         candi = F06.new_arr_candi
@@ -160,14 +157,21 @@ while True:
         print(jin_candi)
         print(candi)
         print(bahan_bangunan)
+    elif cmd == 'kumpul':
+        F07.kumpul(False, bahan_bangunan)
+        bahan_bangunan = F07.new_arr_bahan_bangunan
+        print(bahan_bangunan)
+    elif cmd == 'batchkumpul':
+        F08.batchkumpul(jin_pengumpul, bahan_bangunan)
+        bahan_bangunan = F08.new_arr_bahan_bangunan_kumpul
+        print(bahan_bangunan)
     elif cmd == 'laporancandi':
         F10.laporancandi(candi)
     elif cmd == 'hancurkancandi':
         F11.hancurkancandi(candi)
         candi = F11.new_arr_candi
         id_candi = filter_id(candi)
-        jin_candi = filter_jinCandi(candi)
-        
+        jin_candi = filter_jinCandi(candi)      
     elif cmd == 'ayamberkokok':
         F12.ayamberkokok(candi)
     elif cmd == 'save':

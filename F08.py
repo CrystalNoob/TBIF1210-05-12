@@ -1,5 +1,6 @@
 from B01 import random
 import F06
+import F07
 import time
 
 def batchbangun(arr_jinPembangun, arr_candi, arr_id, arr_jinCandi, arr_bahan_bangunan):
@@ -63,6 +64,28 @@ def batchbangun(arr_jinPembangun, arr_candi, arr_id, arr_jinCandi, arr_bahan_ban
             if(kurang_air <= 0):    #   Jika air tidak kurang
                 kurang_air = 0
             print("Bangun gagal. Kurang", kurang_pasir,"pasir,", kurang_batu, "batu, dan", kurang_air, "air.")
+
+def batchkumpul(arr_pengumpul, arr_bahan_bangunan)-> None:
+    global new_arr_bahan_bangunan_kumpul
+    if (arr_pengumpul[0] == 0):
+        new_arr_bahan_bangunan_kumpul = arr_bahan_bangunan
+        print("Kumpul gagal. Anda tidak punya jin pengumpul. Silahkan summon terlebih dahulu.")
+    else:   # Ada jin pengumpul
+        sum_get_pasir = 0
+        sum_get_batu = 0
+        sum_get_air = 0
+        print("Mengerahkan", arr_pengumpul[0], "jin untuk mengumpulkan bahan.")
+        for i in range(arr_pengumpul[0]):
+            F07.kumpul(True, arr_bahan_bangunan)
+            sum_get_pasir += F07.get_pasir
+            sum_get_batu += F07.get_batu
+            sum_get_air += F07.get_air
+        print("Jin menemukan total", sum_get_pasir, "pasir,", sum_get_batu, "batu, dan", sum_get_air, "air.")
+        new_arr_bahan_bangunan_kumpul = arr_bahan_bangunan
+        
+
+            
+            
                 
                       
                 

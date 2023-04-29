@@ -21,7 +21,7 @@ def batchbangun(arr_jinPembangun, arr_candi, arr_id, arr_jinCandi, arr_bahan_ban
             sum_req_air += random(X0, 1, 5)
             X0 = random(X0, 1, 5)
         if (sum_req_pasir <= int(arr_bahan_bangunan[2][1][2]) and sum_req_batu <= int(arr_bahan_bangunan[2][2][2]) and sum_req_air <= int(arr_bahan_bangunan[2][3][2])):
-            X0 = seed
+            X0 = seed   # X0 di-reset agar random bahan sama seperti random bahan yang dilakukan sebelumnya
             print("Mengerahkan", str(arr_jinPembangun[0]), "jin untuk membangun candi dengan total bahan", sum_req_pasir, "pasir,", sum_req_batu, "batu, dan", sum_req_air, "air.")
             for i in range(arr_jinPembangun[0]):
                 req_pasir = random(X0, 1, 5)
@@ -38,6 +38,10 @@ def batchbangun(arr_jinPembangun, arr_candi, arr_id, arr_jinCandi, arr_bahan_ban
                 arr_id = F06.new_arr_id
                 arr_jinCandi = F06.new_arr_jinCandi
                 arr_candi = F06.new_arr_candi
+                arr_candi[2][arr_candi[0]-1][2] = req_pasir
+                arr_candi[2][arr_candi[0]-1][3] = req_batu
+                arr_candi[2][arr_candi[0]-1][4] = req_air
+                
             
             new_arr_bahan_bangunan = arr_bahan_bangunan
             new_arr_candi = arr_candi

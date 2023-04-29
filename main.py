@@ -2,6 +2,7 @@ import F01
 import F02
 import F03
 import F04
+import F05
 import F06
 import F08
 import F10
@@ -125,6 +126,15 @@ while True:
         print(candi)
         print(jin_candi)
         print(id_candi)
+    elif cmd == 'ubahjin':
+        F05.ubahjin(users)
+        users = F05.new_arr_user
+        jin_pengumpul = filterRole("jin_pengumpul", users)
+        jin_pembangun = filterRole("jin_pembangun", users)
+        print(users)
+        print(jin_pembangun)
+        print(jin_pengumpul)
+        
         
     # elif cmd == 'hapusjin':
     #     F04.hapus_jin()

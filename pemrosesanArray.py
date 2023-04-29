@@ -18,10 +18,19 @@ def addToArr(x, arr, n_eff) -> list:
         new_arr[n_eff] = x
     return new_arr
 
+def deleteFromArr(x, arr, n_eff):
+    new_arr = init_arr(n_eff-1)
+    j = 0
+    for i in range(n_eff):
+        if (x != arr[i]):
+            new_arr[k] = arr[i]
+            k += 1
+    return new_arr
+
 def filterRole(role, arr) -> list:
     n_eff = int(arr[0])
     if (n_eff == 0):
-        return ["0", []]
+        return [0, []]
     len_newArr = 0
     newArr = []
     for i in range(n_eff):

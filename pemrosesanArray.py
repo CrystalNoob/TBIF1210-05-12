@@ -23,8 +23,8 @@ def deleteFromArr(x, arr, n_eff):
     j = 0
     for i in range(n_eff):
         if (x != arr[i]):
-            new_arr[k] = arr[i]
-            k += 1
+            new_arr[j] = arr[i]
+            j += 1
     return new_arr
 
 def filterRole(role, arr) -> list:

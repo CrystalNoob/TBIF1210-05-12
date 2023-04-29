@@ -98,6 +98,8 @@ role = ''
 # Infinite loop
 while True:
     print(id_candi)
+    print(candi)
+    print(jin_candi)
     # checker(input())
     cmd = input(">>> ")
     if cmd == 'login':
@@ -120,6 +122,9 @@ while True:
         jin_pembangun = filterRole("jin_pembangun", users)
         id_candi = filter_id(candi)
         jin_candi = filter_jinCandi(candi)
+        print(candi)
+        print(jin_candi)
+        print(id_candi)
         
     # elif cmd == 'hapusjin':
     #     F04.hapus_jin()

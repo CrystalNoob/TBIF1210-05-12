@@ -14,7 +14,7 @@ def candiTermahal(arr_candi) -> int:
                 if harga >= hmax :
                     hmax = harga
                     idhmax = arr_candi[2][i][0]
-    return idhmax,hmax        
+    return idhmax,("Rp " + '{0:,}'.format(hmax))     
 
 def candiTermurah(arr_candi) -> int:
     # Spesifikasi : Mengetahui id candi dengan harga bahan termurah
@@ -32,7 +32,7 @@ def candiTermurah(arr_candi) -> int:
                 if harga <= hmin :
                     hmin = harga
                     idhmin = arr_candi[2][i][0]
-        return idhmin,hmin
+        return idhmin,("Rp " + '{0:,}'.format(hmin))
 
 def pasir(arr_candi) -> int :
     if (arr_candi[0] == 1):
@@ -76,8 +76,12 @@ def laporancandi(arr_candi) -> int :
     print("> Total Batu yang digunakan:", batu(arr_candi))
     print("> Total Air yang digunakan:", air(arr_candi))
     # Mengetahui ID candi dengen biaya bangun termahal dan termurah
-    print("> ID Candi Termahal: " + str(candiTermahal(arr_candi)[0]) + " (Rp " + '{0:,}'.format(candiTermahal(arr_candi)[1]) + ")")
-    print("> ID Candi Termurah: " + str(candiTermurah(arr_candi)[0]) + " (Rp " + '{0:,}'.format(candiTermurah(arr_candi)[1]) + ")")
+    if (arr_candi[0] == 1): 
+        print("> ID Candi Termahal: " + candiTermahal(arr_candi))
+        print("> ID Candi Termahal: " + candiTermurah(arr_candi))
+    else:
+        print("> ID Candi Termahal: " + str(candiTermahal(arr_candi)[0]) + " (" + candiTermahal(arr_candi)[1] + ")")
+        print("> ID Candi Termurah: " + str(candiTermurah(arr_candi)[0]) + " (" + candiTermurah(arr_candi)[1] + ")")
 
 # Debugging
 # arr_candi = [3,3,[[11,"joko",2,2,2],[22,"budi",3,3,3],[33,"zidan",4,4,4]]]

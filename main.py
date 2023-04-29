@@ -3,6 +3,7 @@ import F02
 import F03
 # import F04
 import F06
+import F08
 import F10
 import F13
 import F14
@@ -33,9 +34,9 @@ jin_candi = [0, []]
 id_candi = [0, []]
 
 # Untuk Debugging
-print(users)
-print(candi)
-print(bahan_bangunan)
+# print(users)
+# print(candi)
+# print(bahan_bangunan)
 
 logged = False
 loggedUser = ''
@@ -62,6 +63,16 @@ while True:
         print(users)
     # elif cmd == 'hapusjin':
     #     F04.hapus_jin()
+    elif cmd == 'batchbangun':
+        F08.batchbangun(jin_pembangun,candi, id_candi, jin_candi, bahan_bangunan)
+        id_candi = F08.new_arr_id
+        jin_candi = F08.new_arr_jinCandi
+        candi = F08.new_arr_candi
+        bahan_bangunan = F08.new_arr_bahan_bangunan
+        print(id_candi)
+        print(jin_candi)
+        print(candi)
+        print(bahan_bangunan)
     elif cmd == 'laporancandi':
         F10.laporancandi(candi)
     elif cmd == 'save':
@@ -71,7 +82,7 @@ while True:
     elif cmd == 'exit':
         F16.exit(users, candi, bahan_bangunan)
     elif cmd == 'bangun':
-        F06.bangun("usernameJin1", id_candi, jin_candi, candi, bahan_bangunan)
+        F06.bangun(False, "usernameJin1", id_candi, jin_candi, candi, bahan_bangunan)
         candi = F06.new_arr_candi
         id_candi = F06.new_arr_id
         jin_candi = F06.new_arr_jinCandi

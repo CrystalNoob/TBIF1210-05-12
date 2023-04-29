@@ -1,24 +1,34 @@
+import time
 from B01 import random
 from pemrosesanArray import addToArr, init_arr
-seed = 8
-X0 = seed
 
-def bangun(username, arr_id, arr_jinCandi, arr_candi, arr_bahan) -> None:
-    global X0, new_arr_bahan, new_arr_candi, new_arr_id, new_arr_jinCandi
+def bangun(isBatch, username, arr_id, arr_jinCandi, arr_candi, arr_bahan) -> None:
+    global new_arr_bahan, new_arr_candi, new_arr_id, new_arr_jinCandi, req_air, req_batu, req_pasir
+    seed = int(time.time())
+    X0 = seed  
     # Generate bahan
-    req_pasir = random(X0, 1, 5)
-    X0 = req_pasir
-    req_batu = random(X0, 1, 5)
-    X0 = req_batu
-    req_air = random(X0, 1, 5)
-    X0 = req_air
+    if not isBatch:
+        req_pasir = random(X0, 1, 5)
+        X0 = req_pasir
+        req_batu = random(X0, 1, 5)
+        X0 = req_batu
+        req_air = random(X0, 1, 5)
+        X0 = req_air
+        
+    else:
+        # Set nilai agar melewati kondisional if
+        req_pasir = 0
+        req_batu = 0
+        req_air = 0
+        
        
-    if (int(arr_bahan[0]) == 4 and req_pasir <= int(arr_bahan[2][1][2]) and req_batu <= int(arr_bahan[2][2][2]) and req_air <= int(arr_bahan[2][3][2])):
+    if (arr_bahan[0] == 4 and req_pasir <= int(arr_bahan[2][1][2]) and req_batu <= int(arr_bahan[2][2][2]) and req_air <= int(arr_bahan[2][3][2])):
         # Update bahan bangunan
-        arr_bahan[2][1][2] = str(int(arr_bahan[2][1][2])-req_pasir)
-        arr_bahan[2][2][2] = str(int(arr_bahan[2][2][2])-req_batu)
-        arr_bahan[2][3][2] = str(int(arr_bahan[2][3][2])-req_air)
-        new_arr_bahan = arr_bahan
+        if not isBatch:
+            arr_bahan[2][1][2] = str(int(arr_bahan[2][1][2])-req_pasir)
+            arr_bahan[2][2][2] = str(int(arr_bahan[2][2][2])-req_batu)
+            arr_bahan[2][3][2] = str(int(arr_bahan[2][3][2])-req_air)
+            new_arr_bahan = arr_bahan
         # Menentukan ID Candi
         n_eff_id = arr_id[0]
         is_newID = True
@@ -55,12 +65,14 @@ def bangun(username, arr_id, arr_jinCandi, arr_candi, arr_bahan) -> None:
         # Update arr_candi
         n_eff_candi = int(arr_candi[0]) + 1
         new_arr_candi = [n_eff_candi, arr_candi[1], addToArr([str(getID), username, req_pasir, req_batu, req_air], arr_candi[2], int(arr_candi[0])) ]
-        print("Candi berhasil dibangun!")
-        print("Sisa candi yang perlu dibangun:", 100-int(arr_candi[0]))
+        if not isBatch:
+            print("Candi berhasil dibangun!")
+            print("Sisa candi yang perlu dibangun:", 100-int(arr_candi[0]))
     else:
         new_arr_bahan = arr_bahan
         new_arr_candi = arr_candi
         new_arr_id = arr_id
         new_arr_jinCandi = arr_jinCandi
-        print("Bahan bangunan tidak mencukupi!")
-        print("Candi tidak bisa dibangun!")
+        if not isBatch:
+            print("Bahan bangunan tidak mencukupi!")
+            print("Candi tidak bisa dibangun!")

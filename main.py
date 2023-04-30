@@ -192,10 +192,10 @@ while True:
                 
         elif (role == 'jin_pembangun'):
             if cmd == 'bangun':
-                F06.bangun(False, "usernameJin1", id_candi, jin_candi, candi, bahan_bangunan)
+                F06.bangun(False, "usernameJin1", id_candi, candi, bahan_bangunan)
                 candi = F06.new_arr_candi
                 id_candi = F06.new_arr_id
-                jin_candi = F06.new_arr_jinCandi
+                jin_candi = filter_jinCandi(candi)
                 bahan_bangunan = F06.new_arr_bahan
                 # Untuk Debugging:
                 # print(candi)

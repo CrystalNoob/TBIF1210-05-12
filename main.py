@@ -157,10 +157,10 @@ while True:
                 # print(jin_pembangun[0])
                 # print(jin_pengumpul[0])
             elif cmd == 'batchbangun':
-                F08.batchbangun(jin_pembangun,candi, id_candi, jin_candi, bahan_bangunan)
+                F08.batchbangun(jin_pembangun,candi, id_candi, bahan_bangunan)
                 id_candi = F08.new_arr_id
-                jin_candi = F08.new_arr_jinCandi
                 candi = F08.new_arr_candi
+                jin_candi = filter_jinCandi(candi)
                 bahan_bangunan = F08.new_arr_bahan_bangunan
                 # print(id_candi)
                 # print(jin_candi)

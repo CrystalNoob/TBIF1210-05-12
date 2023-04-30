@@ -3,7 +3,7 @@ import F06
 import F07
 import time
 
-def batchbangun(arr_jinPembangun, arr_candi, arr_id, arr_jinCandi, arr_bahan_bangunan):
+def batchbangun(arr_jinPembangun, arr_candi, arr_id, arr_bahan_bangunan):
     global new_arr_bahan_bangunan, new_arr_candi, new_arr_id, new_arr_jinCandi
     seed = int(time.time())
     X0 = seed   

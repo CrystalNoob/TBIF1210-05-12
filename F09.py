@@ -8,7 +8,7 @@ def jinTerajin(arr_jinCandi) -> str:
         jmlCandiTerbanyak = arr_jinCandi[1][0][1]
         temp_terajin = arr_jinCandi[1][0][0]
         for i in range(arr_jinCandi[0]):
-            if (arr_jinCandi[1][i][1] > jmlCandiTerbanyak) or (arr_jinCandi[1][i][1] == temp_terajin and arr_jinCandi[1][i][0] < temp_terajin):
+            if (arr_jinCandi[1][i][1] > jmlCandiTerbanyak) or (arr_jinCandi[1][i][1] == jmlCandiTerbanyak and arr_jinCandi[1][i][0] < temp_terajin):
                 temp_terajin = arr_jinCandi[1][i][0]
                 jmlCandiTerbanyak = arr_jinCandi[1][i][1]
     return temp_terajin

@@ -3,7 +3,7 @@ import F06
 import F07
 import time
 
-def batchbangun(arr_jinPembangun, arr_candi, arr_id, arr_bahan_bangunan):
+def batchbangun(arr_jinPembangun, arr_candi, arr_id, arr_jinCandi, arr_bahan_bangunan):
     global new_arr_bahan_bangunan, new_arr_candi, new_arr_id, new_arr_jinCandi
     seed = int(time.time())
     X0 = seed   
@@ -35,7 +35,7 @@ def batchbangun(arr_jinPembangun, arr_candi, arr_id, arr_bahan_bangunan):
                 arr_bahan_bangunan[2][1][2] = str(int(arr_bahan_bangunan[2][1][2])-req_pasir)
                 arr_bahan_bangunan[2][2][2] = str(int(arr_bahan_bangunan[2][2][2])-req_batu)
                 arr_bahan_bangunan[2][3][2] = str(int(arr_bahan_bangunan[2][3][2])-req_air) 
-                F06.bangun(True, arr_jinPembangun[1][i], arr_id, arr_jinCandi, arr_candi, arr_bahan_bangunan)
+                F06.bangun(True, arr_jinPembangun[1][i], arr_id, arr_candi, arr_bahan_bangunan)
                 arr_id = F06.new_arr_id
                 arr_jinCandi = F06.new_arr_jinCandi
                 arr_candi = F06.new_arr_candi

@@ -61,26 +61,30 @@ def filter_jinCandi(arr_candi):
 
 # Filter Array id_candi
 def filter_id(arr_candi):
-    idMax = int(arr_candi[2][1][0])
-    # Mencari id terbesar
-    for i in range(arr_candi[0]):
-        if (i != 0):
-            if(idMax > int(arr_candi[2][i][0])):
-                idMax = int(arr_candi[2][i][0])
-                
-    # Inisialisasi array dengan panjang array sesuai dengan idMax           
-    arr_id = [idMax, [0 for i in range(idMax)]]
-    
-    # Memperbarui arr_id dengan id yang ada pada candi, jika tidak ada id nya maka akan tetap nol
-    for i in range(idMax):
-        for j in range(arr_candi[0]):
-            if (j != 0):
-                if (i+1 == int(arr_candi[2][j][0])):
-                    arr_id[1][i] = int(arr_candi[2][j][0])          
+    if (arr_candi[0] == 1):
+        arr_id = [0,[]]
+    else:
+        idMax = int(arr_candi[2][1][0])
+        # Mencari id terbesar
+        for i in range(arr_candi[0]):
+            if (i != 0):
+                if(idMax < int(arr_candi[2][i][0])):
+                    idMax = int(arr_candi[2][i][0])
+                    
+        # Inisialisasi array dengan panjang array sesuai dengan idMax           
+        arr_id = [idMax, [0 for i in range(idMax)]]
+        
+        # Memperbarui arr_id dengan id yang ada pada candi, jika tidak ada id nya maka akan tetap nol
+        for i in range(idMax):
+            for j in range(arr_candi[0]):
+                if (j != 0):
+                    if (i+1 == int(arr_candi[2][j][0])):
+                        arr_id[1][i] = int(arr_candi[2][j][0])          
     return arr_id    
                 
 F13.load()
 
+# Deklarasi Variable
 users = F13.arr_userCSV
 candi = F13.arr_candiCSV
 bahan_bangunan = F13.arr_bahan_bangunanCSV
@@ -89,22 +93,12 @@ jin_pembangun = filterRole("jin_pembangun", users)
 id_candi = filter_id(candi)
 jin_candi = filter_jinCandi(candi)
 
-# Untuk Debugging
-# print(users)
-# print(candi)
-# print(bahan_bangunan)
-
 logged = False
 loggedUser = ''
 role = ''
 
 # Infinite loop
 while True:
-    # print(candi)
-    # print(id_candi)
-    # print(candi)
-    # print(jin_candi)
-    # checker(input())
     cmd = input(">>> ")
     
     if cmd == 'login':
@@ -112,9 +106,6 @@ while True:
         logged = F01.logged
         loggedUser = F01.userName
         role = F01.role
-        # print(logged)
-        # print(loggedUser)
-        # print(role)
     elif cmd == 'logout':
         F02.logout(logged)
         role = F02.get_role
@@ -134,9 +125,6 @@ while True:
                 jin_pengumpul = F03.new_arr_pengumpul
                 jin_pembangun = F03.new_arr_pembangun
                 users = F03.new_arr_user
-                # print(jin_pembangun[0])
-                # print(jin_pengumpul[0])
-                # print(users[0])
             elif cmd == 'hapusjin':
                 F04.hapusjin(users, candi, jin_candi)
                 users = F04.new_arr_user
@@ -145,27 +133,20 @@ while True:
                 jin_pembangun = filterRole("jin_pembangun", users)
                 id_candi = filter_id(candi)
                 jin_candi = filter_jinCandi(candi)
-                # print(candi[0])
-                # print(jin_candi)
-                # print(id_candi)
             elif cmd == 'ubahjin':
                 F05.ubahjin(users)
                 users = F05.new_arr_user
                 jin_pengumpul = filterRole("jin_pengumpul", users)
                 jin_pembangun = filterRole("jin_pembangun", users)
-                # print(users[0])
-                # print(jin_pembangun[0])
-                # print(jin_pengumpul[0])
             elif cmd == 'batchbangun':
                 F08.batchbangun(jin_pembangun,candi, id_candi, bahan_bangunan)
                 candi = F08.new_arr_candi
-                jin_candi = filter_jinCandi(candi)
-                id_candi = filter_id(candi)
                 bahan_bangunan = F08.new_arr_bahan_bangunan
+                jin_candi = filter_jinCandi(candi)
+                id_candi = F08.new_arr_id
             elif cmd == 'batchkumpul':
                 F08.batchkumpul(jin_pengumpul, bahan_bangunan)
                 bahan_bangunan = F08.new_arr_bahan_bangunan_kumpul
-                # print(bahan_bangunan)
             elif cmd == 'laporancandi':
                 F10.laporancandi(candi)
             elif cmd == 'laporanjin' :
@@ -183,9 +164,7 @@ while True:
         elif (role == 'jin_pengumpul'):
             if cmd == 'kumpul':
                 F07.kumpul(False, bahan_bangunan)
-                bahan_bangunan = F07.new_arr_bahan_bangunan
-                # print(bahan_bangunan)
-                
+                bahan_bangunan = F07.new_arr_bahan_bangunan        
         elif (role == 'jin_pembangun'):
             if cmd == 'bangun':
                 F06.bangun(False, "usernameJin1", id_candi, candi, bahan_bangunan)
@@ -193,8 +172,3 @@ while True:
                 id_candi = F06.new_arr_id
                 jin_candi = filter_jinCandi(candi)
                 bahan_bangunan = F06.new_arr_bahan
-                # Untuk Debugging:
-                # print(candi)
-                # print(id_candi)
-                # print(jin_candi)
-                # print(bahan_bangunan)

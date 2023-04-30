@@ -4,7 +4,7 @@ import F07
 import time
 
 def batchbangun(arr_jinPembangun, arr_candi, arr_id, arr_bahan_bangunan):
-    global new_arr_bahan_bangunan, new_arr_candi
+    global new_arr_bahan_bangunan, new_arr_candi, new_arr_id
     seed = int(time.time())
     X0 = seed   
     if (arr_jinPembangun[0] == 0):
@@ -36,15 +36,16 @@ def batchbangun(arr_jinPembangun, arr_candi, arr_id, arr_bahan_bangunan):
                 arr_bahan_bangunan[2][2][2] = str(int(arr_bahan_bangunan[2][2][2])-req_batu)
                 arr_bahan_bangunan[2][3][2] = str(int(arr_bahan_bangunan[2][3][2])-req_air) 
                 F06.bangun(True, arr_jinPembangun[1][i], arr_id, arr_candi, arr_bahan_bangunan)
-                arr_id = F06.new_arr_id
                 arr_candi = F06.new_arr_candi
+                arr_id = F06.new_arr_id
                 arr_candi[2][arr_candi[0]-1][2] = req_pasir
                 arr_candi[2][arr_candi[0]-1][3] = req_batu
                 arr_candi[2][arr_candi[0]-1][4] = req_air
-                
-            
+                    
             new_arr_bahan_bangunan = arr_bahan_bangunan
             new_arr_candi = arr_candi
+            new_arr_id = arr_id
+            print("Jin berhasil membangun total", arr_jinPembangun[0], "candi.")
                 
         else:   # total bahan tidak mencukupi
             new_arr_bahan_bangunan = arr_bahan_bangunan
@@ -76,5 +77,6 @@ def batchkumpul(arr_pengumpul, arr_bahan_bangunan) -> None:
             sum_get_pasir += F07.get_pasir
             sum_get_batu += F07.get_batu
             sum_get_air += F07.get_air
+            arr_bahan_bangunan = F07.new_arr_bahan_bangunan
         print("Jin menemukan total", sum_get_pasir, "pasir,", sum_get_batu, "batu, dan", sum_get_air, "air.")
         new_arr_bahan_bangunan_kumpul = arr_bahan_bangunan   

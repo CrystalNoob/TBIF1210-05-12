@@ -84,5 +84,5 @@ def laporancandi(arr_candi) -> int :
         print("> ID Candi Termurah: " + str(candiTermurah(arr_candi)[0]) + " (" + candiTermurah(arr_candi)[1] + ")")
 
 # Debugging
-arr_candi = [3,3,[[11,"joko",2,2,2],[22,"budi",3,3,3],[33,"zidan",4,4,4]]]
-laporancandi(arr_candi)
+# arr_candi = [3,3,[[11,"joko",2,2,2],[22,"budi",3,3,3],[33,"zidan",4,4,4]]]
+# laporancandi(arr_candi)

@@ -4,7 +4,7 @@ import F07
 import time
 
 def batchbangun(arr_jinPembangun, arr_candi, arr_id, arr_bahan_bangunan):
-    global new_arr_bahan_bangunan, new_arr_candi, new_arr_id
+    global new_arr_bahan_bangunan, new_arr_candi
     seed = int(time.time())
     X0 = seed   
     if (arr_jinPembangun[0] == 0):
@@ -45,12 +45,10 @@ def batchbangun(arr_jinPembangun, arr_candi, arr_id, arr_bahan_bangunan):
             
             new_arr_bahan_bangunan = arr_bahan_bangunan
             new_arr_candi = arr_candi
-            new_arr_id = arr_id
                 
         else:   # total bahan tidak mencukupi
             new_arr_bahan_bangunan = arr_bahan_bangunan
             new_arr_candi = arr_candi
-            new_arr_id = arr_id
             kurang_pasir = sum_req_pasir - int(arr_bahan_bangunan[2][1][2])
             kurang_batu = sum_req_batu - int(arr_bahan_bangunan[2][2][2])
             kurang_air = sum_req_air - int(arr_bahan_bangunan[2][3][2])

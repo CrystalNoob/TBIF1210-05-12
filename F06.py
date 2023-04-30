@@ -7,6 +7,7 @@ def bangun(isBatch, username, arr_id, arr_candi, arr_bahan) -> None:
 
     arr_candi_penuh = arr_candi     # Jika candi sudah 100, array candi tidak akan diupdate
 
+    
     seed = int(time.time())
     X0 = seed  
     # Generate bahan
@@ -69,7 +70,8 @@ def bangun(isBatch, username, arr_id, arr_candi, arr_bahan) -> None:
             print("Bahan bangunan tidak mencukupi!")
             print("Candi tidak bisa dibangun!")
             
-    if (arr_candi[0] == 101) and isBangun and not isBatch:   # Jika candi sudah 100, array candi tidak akan diupdate
+    if (arr_candi[0] == 101) and isBangun :   # Jika candi sudah 100, array candi tidak akan diupdate
         new_arr_candi = arr_candi_penuh
-        print("Candi berhasil dibangun.")
-        print("Sisa candi yang perlu dibangun: 0.")
+        if not isBatch:
+            print("Candi berhasil dibangun.")
+            print("Sisa candi yang perlu dibangun: 0.")

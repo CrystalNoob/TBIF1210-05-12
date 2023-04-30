@@ -167,7 +167,7 @@ while True:
                 bahan_bangunan = F07.new_arr_bahan_bangunan        
         elif (role == 'jin_pembangun'):
             if cmd == 'bangun':
-                F06.bangun(False, "usernameJin1", id_candi, candi, bahan_bangunan)
+                F06.bangun(False, loggedUser, id_candi, candi, bahan_bangunan)
                 candi = F06.new_arr_candi
                 id_candi = F06.new_arr_id
                 jin_candi = filter_jinCandi(candi)

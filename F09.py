@@ -44,7 +44,12 @@ def laporanjin(arr_pengumpul, arr_pembangun, arr_bahan, arr_candi, arr_jinCandi)
     # Mengetahui siapa username jin termalas (paling sedikit membuat candi).
     print("> Jin Termalas:", jinTermalas(arr_pembangun, arr_candi))
     # Melihat berapa banyak material saat ini untuk melihat mungkin tidaknya melakukan batch bangun.
-    print("> Jumlah Pasir:", arr_bahan[2][1][2], "unit")
-    print("> Jumlah Batu:", arr_bahan[2][2][2], "unit")
-    print("> Jumlah Air:", arr_bahan[2][3][2], "unit")
+    if (arr_bahan[0] == 1):     # Kalau cmn 1 berarti itu hanya header, belum ada pasir, batu, dan air
+        print("> Jumlah Pasir: 0 unit")
+        print("> Jumlah Batu: 0 unit")
+        print("> Jumlah Air: 0 unit")
+    else:
+        print("> Jumlah Pasir:", arr_bahan[2][1][2], "unit")
+        print("> Jumlah Batu:", arr_bahan[2][2][2], "unit")
+        print("> Jumlah Air:", arr_bahan[2][3][2], "unit")
     

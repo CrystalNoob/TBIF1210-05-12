@@ -60,7 +60,7 @@ def bangun(isBatch, username, arr_id, arr_candi, arr_bahan) -> None:
         new_arr_candi = [n_eff_candi, arr_candi[1], addToArr([str(getID), username, req_pasir, req_batu, req_air], arr_candi[2], int(arr_candi[0])) ]
         if not isBatch and (arr_candi[0] != 101):
             print("Candi berhasil dibangun!")
-            print("Sisa candi yang perlu dibangun:", 100-int(arr_candi[0])+1)
+            print("Sisa candi yang perlu dibangun:", 100-int(arr_candi[0]))
     else:
         new_arr_bahan = arr_bahan
         new_arr_candi = arr_candi

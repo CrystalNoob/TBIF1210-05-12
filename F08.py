@@ -81,17 +81,4 @@ def batchkumpul(arr_pengumpul, arr_bahan_bangunan) -> None:
             sum_get_batu += F07.get_batu
             sum_get_air += F07.get_air
         print("Jin menemukan total", sum_get_pasir, "pasir,", sum_get_batu, "batu, dan", sum_get_air, "air.")
-        new_arr_bahan_bangunan_kumpul = arr_bahan_bangunan
-        
-
-            
-            
-                
-                      
-                
-            
-            
-
-
-     
-    
+        new_arr_bahan_bangunan_kumpul = arr_bahan_bangunan   

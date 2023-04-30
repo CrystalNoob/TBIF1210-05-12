@@ -17,10 +17,10 @@ def jinTermalas(arr_jin, arr_candi) -> str:
     # Spesifikasi : mengetahui siapa username jin termalas (paling sedikit membuat candi).
     # Jika terdapat lebih dari 1 jin termalas, tampilkan username jin dengan urutan leksikografis tertinggi (contoh: Hashemi dan Rafsanjani → pilih Rafsanjani).
     # Menerima masukan array yang berisi username jin pembangun dan array yang berisi data candi yang telah dibangun.
-    if (int(arr_jin[0]) == 0):
-        return "-"  # Kalau tidak ada jin pembangun, tampilkan "-"
+    if (int(arr_jin[0]) <= 1):
+        return "-"  # Kalau hanya ada 1 atau kurang jin pembangun, tampilkan "-"
     else:   # (int(arr_jin[0]) != 0) Jin pembangun > 0
-        tabJin = [ [arr_jin[1][i], "0"] for i in range(int(arr_jin[0])) ]   # Inisialisas array [ [username_jin1, jmlCandiDibangunJin1] , [username_jin2, jmlCandiDibangunJin2] , ... ]
+        tabJin = [ [arr_jin[1][i], 0] for i in range(int(arr_jin[0])) ]   # Inisialisas array [ [username_jin1, jmlCandiDibangunJin1] , [username_jin2, jmlCandiDibangunJin2] , ... ]
         for i in range(int(arr_candi[0])):  # Looping array yang berisi data candi
             for j in range(int(arr_jin[0])):    # Looping array yang berisi username candi pembangun
                 if (tabJin[j][0] == arr_candi[2][i][1]):    # Kalau username jin pembangun pada array jin pembangun = username jin pembangun pada array candi

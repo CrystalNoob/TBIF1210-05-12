@@ -14,6 +14,7 @@ def ubahjin(arr_user) -> None:
             if (confirm == 'Y'):
                 arr_user[2][indeks][2] = "jin_pembangun"
                 new_arr_user = arr_user
+                print("Tipe Jin berhasil diubah!")
             else:
                 new_arr_user = arr_user
                 print("Jin tidak diubah") 
@@ -24,6 +25,7 @@ def ubahjin(arr_user) -> None:
             if (confirm == 'Y'):
                 arr_user[2][indeks][2] = "jin_pengumpul"
                 new_arr_user = arr_user
+                print("Tipe Jin berhasil diubah!")
             else:
                 new_arr_user = arr_user
                 print("Jin tidak diubah") 

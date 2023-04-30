@@ -1,4 +1,5 @@
 from pemrosesanArray import addToArr
+import time
 
 def isValid(username, arr_user) -> bool:
     for i in range(arr_user[0]):
@@ -53,7 +54,13 @@ def summonjin(arr_pengumpul, arr_pembangun, arr_user) -> None:
             new_arr_user = [arr_user[0]+1, arr_user[1], addToArr([new_username, password, "jin_pembangun"], arr_user[2], arr_user[0])]
             
         print("Mengumpulkan sesajen...")
+        time.sleep(1)
         print("Menyerahkan sesajen...")
+        time.sleep(1)
         print("Membacakan mantra...")
+        time.sleep(2)
+        print()
+        print("Jin", new_username, "berhasil dipanggil!")
+        print()
             
       

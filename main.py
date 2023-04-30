@@ -61,20 +61,22 @@ def filter_jinCandi(arr_candi):
 
 # Filter Array id_candi
 def filter_id(arr_candi):
-    if (arr_candi[0] == 1):
-        arr_id = [0, []]
-    else:
-        arr_id = [0, []]
-        temp_id = 1
-        for i in range(arr_candi[0]):
-            if (i != 0):
-                while (str(temp_id) != arr_candi[2][i][0]):
-                    arr_id[1] = addToArr(0, arr_id[1], arr_id[0])
-                    temp_id += 1
-                    arr_id[0] += 1
-                arr_id[1] = addToArr(temp_id, arr_id[1], arr_id[0])
-                temp_id += 1
-                arr_id[0] += 1
+    idMax = int(arr_candi[2][1][0])
+    # Mencari id terbesar
+    for i in range(arr_candi[0]):
+        if (i != 0):
+            if(idMax > int(arr_candi[2][i][0])):
+                idMax = int(arr_candi[2][i][0])
+                
+    # Inisialisasi array dengan panjang array sesuai dengan idMax           
+    arr_id = [idMax, [0 for i in range(idMax)]]
+    
+    # Memperbarui arr_id dengan id yang ada pada candi, jika tidak ada id nya maka akan tetap nol
+    for i in range(idMax):
+        for j in range(arr_candi[0]):
+            if (j != 0):
+                if (i+1 == int(arr_candi[2][j][0])):
+                    arr_id[1][i] = int(arr_candi[2][j][0])          
     return arr_id    
                 
 F13.load()
@@ -82,10 +84,8 @@ F13.load()
 users = F13.arr_userCSV
 candi = F13.arr_candiCSV
 bahan_bangunan = F13.arr_bahan_bangunanCSV
-
 jin_pengumpul = filterRole("jin_pengumpul", users)
 jin_pembangun = filterRole("jin_pembangun", users)
-
 id_candi = filter_id(candi)
 jin_candi = filter_jinCandi(candi)
 
@@ -100,6 +100,7 @@ role = ''
 
 # Infinite loop
 while True:
+    # print(candi)
     # print(id_candi)
     # print(candi)
     # print(jin_candi)

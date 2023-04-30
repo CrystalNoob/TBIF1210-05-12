@@ -6,6 +6,7 @@ import F05
 import F06
 import F07
 import F08
+import F09
 import F10
 import F11
 import F12
@@ -16,7 +17,6 @@ import F16
 from csv_arr_Converter import csvToArr
 from pemrosesanArray import filterRole, init_arr, addToArr
 from length_CSV import *
-from F09 import laporanjin
 # STRUKTUR ARRAY
 # users = [lenRow, lenCol, [ [username, password, role], [username1, password1, role1], ... ] ]
 # candi = [lenRow, lenCol, [ [id, pembuat, pasir, batu, air], [id1, pembuat1, pasir1, batu1, air1], ... ] ]
@@ -52,10 +52,10 @@ def filter_jinCandi(arr_candi):
                     temp_arr[2] += 1
                     l += 1
                         
-    arrFilter = [temp_arr[2], [["", 0] for i in range(temp_arr[2])]]
-    for i in range(arrFilter[0]):
-            arrFilter[1][i][0] = temp_arr[1][i][0]
-            arrFilter[1][i][1] = temp_arr[1][i][1]
+        arrFilter = [temp_arr[2], [["", 0] for i in range(temp_arr[2])]]
+        for i in range(arrFilter[0]):
+                arrFilter[1][i][0] = temp_arr[1][i][0]
+                arrFilter[1][i][1] = temp_arr[1][i][1]
 
     return arrFilter
 
@@ -100,86 +100,104 @@ role = ''
 
 # Infinite loop
 while True:
-    print(id_candi)
-    print(candi)
-    print(jin_candi)
+    # print(id_candi)
+    # print(candi)
+    # print(jin_candi)
     # checker(input())
     cmd = input(">>> ")
+    
     if cmd == 'login':
-        F01.login(logged, users[2], users[0])
+        F01.login(loggedUser, role, logged, users[2], users[0])
+        logged = F01.logged
+        loggedUser = F01.userName
+        role = F01.role
+        # print(logged)
+        # print(loggedUser)
+        # print(role)
     elif cmd == 'logout':
-        F02.logout()
-    elif cmd == 'summonjin':
-        F03.summonjin(jin_pengumpul, jin_pembangun, users)
-        jin_pengumpul = F03.new_arr_pengumpul
-        jin_pembangun = F03.new_arr_pembangun
-        users = F03.new_arr_user
-        print(jin_pembangun)
-        print(jin_pengumpul)
-        print(users)
-    elif cmd == 'hapusjin':
-        F04.hapusjin(users, candi, jin_candi)
-        users = F04.new_arr_user
-        candi = F04.new_arr_candi
-        jin_pengumpul = filterRole("jin_pengumpul", users)
-        jin_pembangun = filterRole("jin_pembangun", users)
-        id_candi = filter_id(candi)
-        jin_candi = filter_jinCandi(candi)
-        print(candi)
-        print(jin_candi)
-        print(id_candi)
-    elif cmd == 'ubahjin':
-        F05.ubahjin(users)
-        users = F05.new_arr_user
-        jin_pengumpul = filterRole("jin_pengumpul", users)
-        jin_pembangun = filterRole("jin_pembangun", users)
-        print(users)
-        print(jin_pembangun)
-        print(jin_pengumpul)
-    elif cmd == 'bangun':
-        F06.bangun(False, "usernameJin1", id_candi, jin_candi, candi, bahan_bangunan)
-        candi = F06.new_arr_candi
-        id_candi = F06.new_arr_id
-        jin_candi = F06.new_arr_jinCandi
-        bahan_bangunan = F06.new_arr_bahan
-        # Untuk Debugging:
-        # print(candi)
-        # print(id_candi)
-        # print(jin_candi)
-        # print(bahan_bangunan)
-    elif cmd == 'batchbangun':
-        F08.batchbangun(jin_pembangun,candi, id_candi, jin_candi, bahan_bangunan)
-        id_candi = F08.new_arr_id
-        jin_candi = F08.new_arr_jinCandi
-        candi = F08.new_arr_candi
-        bahan_bangunan = F08.new_arr_bahan_bangunan
-        print(id_candi)
-        print(jin_candi)
-        print(candi)
-        print(bahan_bangunan)
-    elif cmd == 'kumpul':
-        F07.kumpul(False, bahan_bangunan)
-        bahan_bangunan = F07.new_arr_bahan_bangunan
-        print(bahan_bangunan)
-    elif cmd == 'batchkumpul':
-        F08.batchkumpul(jin_pengumpul, bahan_bangunan)
-        bahan_bangunan = F08.new_arr_bahan_bangunan_kumpul
-        print(bahan_bangunan)
-    elif cmd == 'laporancandi':
-        F10.laporancandi(candi)
-    elif cmd == 'hancurkancandi':
-        F11.hancurkancandi(candi)
-        candi = F11.new_arr_candi
-        id_candi = filter_id(candi)
-        jin_candi = filter_jinCandi(candi)      
-    elif cmd == 'ayamberkokok':
-        F12.ayamberkokok(candi)
+        F02.logout(logged)
+        role = F02.get_role
+        logged = F02.get_logged
+        loggedUser = F02.get_username
     elif cmd == 'save':
         F14.save(users, candi, bahan_bangunan)
     elif cmd == 'help':
-        F15.help()
+        F15.help(role, logged)
     elif cmd == 'exit':
         F16.exit(users, candi, bahan_bangunan)
-    elif cmd == 'laporanjin' :
-        laporanjin(jin_pengumpul, jin_pembangun, bahan_bangunan, candi, jin_candi)
         
+    if logged:
+        if (role == 'bandung_bondowoso'):
+            if cmd == 'summonjin':
+                F03.summonjin(jin_pengumpul, jin_pembangun, users)
+                jin_pengumpul = F03.new_arr_pengumpul
+                jin_pembangun = F03.new_arr_pembangun
+                users = F03.new_arr_user
+                # print(jin_pembangun[0])
+                # print(jin_pengumpul[0])
+                # print(users[0])
+            elif cmd == 'hapusjin':
+                F04.hapusjin(users, candi, jin_candi)
+                users = F04.new_arr_user
+                candi = F04.new_arr_candi
+                jin_pengumpul = filterRole("jin_pengumpul", users)
+                jin_pembangun = filterRole("jin_pembangun", users)
+                id_candi = filter_id(candi)
+                jin_candi = filter_jinCandi(candi)
+                # print(candi[0])
+                # print(jin_candi)
+                # print(id_candi)
+            elif cmd == 'ubahjin':
+                F05.ubahjin(users)
+                users = F05.new_arr_user
+                jin_pengumpul = filterRole("jin_pengumpul", users)
+                jin_pembangun = filterRole("jin_pembangun", users)
+                # print(users[0])
+                # print(jin_pembangun[0])
+                # print(jin_pengumpul[0])
+            elif cmd == 'batchbangun':
+                F08.batchbangun(jin_pembangun,candi, id_candi, jin_candi, bahan_bangunan)
+                id_candi = F08.new_arr_id
+                jin_candi = F08.new_arr_jinCandi
+                candi = F08.new_arr_candi
+                bahan_bangunan = F08.new_arr_bahan_bangunan
+                # print(id_candi)
+                # print(jin_candi)
+                # print(candi[0])
+                # print(bahan_bangunan)
+            elif cmd == 'batchkumpul':
+                F08.batchkumpul(jin_pengumpul, bahan_bangunan)
+                bahan_bangunan = F08.new_arr_bahan_bangunan_kumpul
+                # print(bahan_bangunan)
+            elif cmd == 'laporancandi':
+                F10.laporancandi(candi)
+            elif cmd == 'laporanjin' :
+                F09.laporanjin(jin_pengumpul, jin_pembangun, bahan_bangunan, candi, jin_candi)
+                
+        elif (role == 'roro_jonggrang'):
+            if cmd == 'hancurkancandi':
+                F11.hancurkancandi(candi)
+                candi = F11.new_arr_candi
+                id_candi = filter_id(candi)
+                jin_candi = filter_jinCandi(candi)      
+            elif cmd == 'ayamberkokok':
+                F12.ayamberkokok(candi)
+                
+        elif (role == 'jin_pengumpul'):
+            if cmd == 'kumpul':
+                F07.kumpul(False, bahan_bangunan)
+                bahan_bangunan = F07.new_arr_bahan_bangunan
+                # print(bahan_bangunan)
+                
+        elif (role == 'jin_pembangun'):
+            if cmd == 'bangun':
+                F06.bangun(False, "usernameJin1", id_candi, jin_candi, candi, bahan_bangunan)
+                candi = F06.new_arr_candi
+                id_candi = F06.new_arr_id
+                jin_candi = F06.new_arr_jinCandi
+                bahan_bangunan = F06.new_arr_bahan
+                # Untuk Debugging:
+                # print(candi)
+                # print(id_candi)
+                # print(jin_candi)
+                # print(bahan_bangunan)

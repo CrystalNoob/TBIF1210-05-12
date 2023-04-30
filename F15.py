@@ -6,12 +6,8 @@ LOGGED_TEXT = "\
  3. save\n    Untuk menyimpan permainan\n\
  4. exit\n    Untuk keluar dari permainan dan kembali ke terminal"
 
-# Global variable
-logged = bool()
-role = ''
-
 # Get-Help Procedure
-def help() -> None:
+def help(role, logged) -> None:
     print(HEADER)
     if not logged:      # Not logged state
         print(" 1. login\n    Untuk masuk menggunakan akun\n 2. exit\n    Untuk keluar dari permainan dan kembali ke terminal")
@@ -31,10 +27,10 @@ def help() -> None:
             print(" 6. ayamberkokok\n    Untuk menyelesaikan permainan dan keluar dari permainan")
         elif role == "jin_pengumpul":
             print(LOGGED_TEXT)
-            print(" 7. kumpul\n    Untuk mengumpulkan bahan bangunan candi")
+            print(" 5. kumpul\n    Untuk mengumpulkan bahan bangunan candi")
         elif role == "jin_pembangun":
             print(LOGGED_TEXT)
-            print(" 7. bangun\n    Untuk membangun candi")
+            print(" 5. bangun\n    Untuk membangun candi")
 
 # Debug & Testing [Passed]
 # if __name__ == "__main__":

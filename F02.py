@@ -1,17 +1,13 @@
-# Declare the existence of global vars
-userName = ''
-logged = bool()
-role = ''
-
 # Logout procedure
-def logout() -> None:
-    listOfGlobals = globals()           # declare to use the global var instead of local
-    if listOfGlobals['logged']:
-        listOfGlobals['userName'] = ''  # Empty every user-related logged-in state
-        listOfGlobals['logged'] = False
-        listOfGlobals['role'] = ''
+def logout(logged) -> None:
+    global get_username, get_role, get_logged           # declare to use the global var instead of local
+    if logged:
+        print("Berhasil Logout!")
     else:                               # How to logout when you haven't even logged in?
         print("Logout gagal!\nAnda belum login, silahkan login terlebih dahulu sebelum melakukan logout")
+    get_username = ''  # Empty every user-related logged-in state
+    get_logged = False
+    get_role = ''
 
 # Debug & Testing [Passed]
 # if __name__ == "__main__":

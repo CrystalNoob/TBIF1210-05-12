@@ -25,7 +25,7 @@ def hapusjin(arr_user, arr_candi, arr_jinCandi)-> None:
                     indeksJin = i            
             if isMembangun:  
                 banyakCandiHancur = int(arr_jinCandi[1][indeksJin][1])
-                indeksCandiHancur = ["" for i in range(banyakCandiHancur)] # Inisialisasi array
+                indeksCandiHancur = [0 for i in range(banyakCandiHancur)] # Inisialisasi array
                 j = 0
                 for i in range(arr_candi[0]):
                     if (username == arr_candi[2][i][1]):

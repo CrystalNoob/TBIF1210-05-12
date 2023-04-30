@@ -1,6 +1,7 @@
 import argparse
 import os
 import sys
+import time
 from csv_arr_Converter import csvToArr
 
 
@@ -17,6 +18,7 @@ def load() -> None:
         sys.exit()
     elif (nama_folder == "New Folder"):
         print("Loading...")
+        time.sleep(2)
         path = "./New Folder"
         for _file in os.listdir(path):
             if (_file == "user.csv"):
@@ -26,7 +28,6 @@ def load() -> None:
             if (_file == "bahan_bangunan.csv"):
                 arr_bahan_bangunanCSV = csvToArr(path + '/' + _file)
         print('Selamat datang di program "Manajerial Candi"')
-        print("Silahkan masukkan username Anda")
     elif (nama_folder == "Dummy"):
         print("Loading...")
         path = "./Dummy"
@@ -38,7 +39,6 @@ def load() -> None:
             if (_file == "bahan_bangunan.csv"):
                 arr_bahan_bangunanCSV = csvToArr(path + '/' + _file)
         print('Selamat datang di program "Manajerial Candi"')
-        print("Silahkan masukkan username Anda")
     else:
         path = "./save/"
         isFound = False
@@ -55,7 +55,6 @@ def load() -> None:
                         if (_file == "bahan_bangunan.csv"):
                             arr_bahan_bangunanCSV = csvToArr(path + _dir + '/' + _file)
                     print('Selamat datang di program "Manajerial Candi"')
-                    print("Silahkan masukkan username Anda")
         if (not isFound):
             print('Folder "' + nama_folder + '" tidak ditemukan.')
             sys.exit()

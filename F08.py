@@ -21,9 +21,9 @@ def batchbangun(arr_jinPembangun, arr_candi, arr_id, arr_jinCandi, arr_bahan_ban
             X0 = random(X0, 1, 5)
             sum_req_air += random(X0, 1, 5)
             X0 = random(X0, 1, 5)
+        print("Mengerahkan", str(arr_jinPembangun[0]), "jin untuk membangun candi dengan total bahan", sum_req_pasir, "pasir,", sum_req_batu, "batu, dan", sum_req_air, "air.")
         if (sum_req_pasir <= int(arr_bahan_bangunan[2][1][2]) and sum_req_batu <= int(arr_bahan_bangunan[2][2][2]) and sum_req_air <= int(arr_bahan_bangunan[2][3][2])):
             X0 = seed   # X0 di-reset agar random bahan sama seperti random bahan yang dilakukan sebelumnya
-            print("Mengerahkan", str(arr_jinPembangun[0]), "jin untuk membangun candi dengan total bahan", sum_req_pasir, "pasir,", sum_req_batu, "batu, dan", sum_req_air, "air.")
             for i in range(arr_jinPembangun[0]):
                 req_pasir = random(X0, 1, 5)
                 X0 = random(X0, 1, 5)
@@ -65,7 +65,7 @@ def batchbangun(arr_jinPembangun, arr_candi, arr_id, arr_jinCandi, arr_bahan_ban
                 kurang_air = 0
             print("Bangun gagal. Kurang", kurang_pasir,"pasir,", kurang_batu, "batu, dan", kurang_air, "air.")
 
-def batchkumpul(arr_pengumpul, arr_bahan_bangunan)-> None:
+def batchkumpul(arr_pengumpul, arr_bahan_bangunan) -> None:
     global new_arr_bahan_bangunan_kumpul
     if (arr_pengumpul[0] == 0):
         new_arr_bahan_bangunan_kumpul = arr_bahan_bangunan

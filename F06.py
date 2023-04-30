@@ -8,7 +8,7 @@ def bangun(isBatch, username, arr_id, arr_jinCandi, arr_candi, arr_bahan) -> Non
         new_arr_bahan = arr_bahan
         new_arr_candi = arr_candi
         new_arr_id = arr_id
-        new_arr_jinCandi = new_arr_jinCandi
+        new_arr_jinCandi = arr_jinCandi
         print("Candi berhasil dibangun.")
         print("Sisa candi yang perlu dibangun: 0.")
     else:

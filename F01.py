@@ -1,8 +1,7 @@
 # Login Procedure
 def login(loggedUser, loggedRole, logState, arr, NMax) -> None:     # arr with format [["name", "pass", "role"]]
     global userName, logged, role      # Declare global var to edit/read
-    nameFound = False
-    passMatch = False           # Init state
+    nameFound = False           # Init state
 
     if logState:          # Why log in when you're already logged?
         logged = True
@@ -18,7 +17,6 @@ def login(loggedUser, loggedRole, logState, arr, NMax) -> None:     # arr with f
                 nameFound = True
                 if loggedPass == arr[i][1]:     # Inputted pass matched with pass in username's index
                     userName = loggedUser       # Change global values
-                    passMatch = True
                     logged = True
                     role = arr[i][2]
                     print(f"Selamat datang, {loggedUser}!\nMasukkan command “help” untuk daftar command yang dapat kamu panggil.")

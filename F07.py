@@ -6,7 +6,8 @@ def kumpul(isBatch, arr_bahan_bangunan) -> None:
     global new_arr_bahan_bangunan, get_air, get_batu, get_pasir
     seed = int(time.time())
     X0 = seed
-    time.sleep(random(X0, 0, 2))    # di sleep supaya lebih random dan sleepnya juga di random lagi supaya lebih random
+    time.sleep(random(X0, 0, 1))    # di sleep supaya lebih random dan sleepnya juga di random lagi supaya lebih random
+    X0 = seed
     get_pasir = random(X0, 0, 5)
     X0 = random(X0, 0, 5)
     get_batu = random(X0, 0, 5)
@@ -25,6 +26,6 @@ def kumpul(isBatch, arr_bahan_bangunan) -> None:
         arr_bahan_bangunan[2][3][2] = int(arr_bahan_bangunan[2][3][2]) + get_air
         new_arr_bahan_bangunan = arr_bahan_bangunan
         
-    # if not isBatch:
-    print("Jin menemukan", get_pasir,"pasir,", get_batu, "batu, dan", get_air, "air.")
+    if not isBatch:
+        print("Jin menemukan", get_pasir,"pasir,", get_batu, "batu, dan", get_air, "air.")
     

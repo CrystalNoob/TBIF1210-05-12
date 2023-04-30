@@ -75,6 +75,7 @@ def batchkumpul(arr_pengumpul, arr_bahan_bangunan) -> None:
         sum_get_batu = 0
         sum_get_air = 0
         print("Mengerahkan", arr_pengumpul[0], "jin untuk mengumpulkan bahan.")
+        print("Sedang mengumpulkan bahan...")
         for i in range(arr_pengumpul[0]):
             F07.kumpul(True, arr_bahan_bangunan)
             sum_get_pasir += F07.get_pasir

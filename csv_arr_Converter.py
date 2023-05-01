@@ -21,7 +21,7 @@ def csvToArr(file):
             else:   # line[i] == ';' 
                     arr[2][line_index][count_semicolon] = temp_string
                     temp_string = ""
-                    count_semicolon += 1; 
+                    count_semicolon += 1
         line_index += 1          
     f.close()
     return arr

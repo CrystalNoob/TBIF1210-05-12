@@ -8,6 +8,9 @@ def batchbangun(arr_jinPembangun, arr_candi, arr_id, arr_bahan_bangunan):
     seed = int(time.time())
     X0 = seed   
     if (arr_jinPembangun[0] == 0):
+        new_arr_candi = arr_candi
+        new_arr_bahan_bangunan = arr_bahan_bangunan
+        new_arr_id = arr_id
         print("Bangun gagal. Anda tidak punya jin pembangun. Silahkan summon terlebih dahulu!")
     else:   # Ada jin
         # Menghitung total bahan yang diperlukan

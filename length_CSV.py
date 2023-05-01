@@ -16,7 +16,7 @@ def lenCsvCol(file) -> int:
 def lenCsvRow(file) -> int:
     # Spesifikasi : 
     # KAMUS LOKAL
-    # count_data : integer
+    # count_line : integer
     # line : string
     # ALGORITMA
     f = open(file, 'r')

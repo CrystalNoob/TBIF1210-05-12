@@ -3,8 +3,8 @@
 > Tugas Besar Dasar Pemrograman Kelas 05 Kelompok 12 **[TBIF1210-05-12]**
 > 
 > Oleh Kelompok 12:<br>
-> 1. 16522194 Haykal Alviantara Surya<br>
-> 2. 16522059 Justin Aprio Chan<br>
+> 1. 16522059 Justin Aprio Chan<br>
+> 2. 16522194 Haykal Alviantara Surya<br>
 > 3. 19622122 Andhika Tantyo Anugrah<br>
 > 4. 19622221 Steven Tjhia<br>
 > 
